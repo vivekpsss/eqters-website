@@ -111,27 +111,7 @@ if(tst){
   const carousel = new bootstrap.Carousel(tst, {interval:4000, ride:'carousel'});
 }
 
-// --- Simple form validation + fake submit feedback ---
-const contactForm = document.getElementById('contactForm');
-const formAlert = document.getElementById('formAlert');
-if(contactForm){
-  contactForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!contactForm.checkValidity()){
-      contactForm.classList.add('was-validated');
-      return;
-    }
 
-    formAlert.style.display = 'block';
-    formAlert.className = 'alert alert-success';
-    formAlert.textContent = 'Thanks! Your message has been received. We will contact you soon.';
-
-    setTimeout(()=>{
-      contactForm.reset();
-      contactForm.classList.remove('was-validated');
-    }, 900);
-  });
-}
 
 // --- Button ripple effect on click (subtle) ---
 document.querySelectorAll('.btn').forEach(btn=>{
@@ -188,30 +168,71 @@ function sendWhatsApp(e, form) {
   return false;
 }
 
-(function () {
-    emailjs.init("pVS3tAHN_bYevC9oa"); // your PUBLIC KEY
-  })();
+document.addEventListener("DOMContentLoaded", function () {
 
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
+  emailjs.init("pVS3tAHN_bYevC9oa"); // PUBLIC KEY
+
+  const contactForm = document.getElementById("contactForm");
+  const formAlert = document.getElementById("formAlert");
+
+  contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    if (!contactForm.checkValidity()) {
+      contactForm.classList.add("was-validated");
+      return;
+    }
+
+    // Show loading message
+    formAlert.style.display = "block";
+    formAlert.innerHTML =
+      "<div class='alert alert-info'>⏳ Sending message…</div>";
+
     emailjs.sendForm(
-      "service_xzyk4ny",     // your SERVICE ID
-      "template_osl26mo",    // your TEMPLATE ID
-      this
+      "service_xzyk4ny",
+      "template_osl26mo",
+      contactForm
     ).then(
       function () {
-        document.getElementById("formAlert").innerHTML =
-          "<div class='alert alert-success'>✅ Message sent successfully. We’ll contact you soon.</div>";
-        document.getElementById("contactForm").reset();
+        showAutoAlert(
+          "success",
+          "✅ Message sent successfully. We’ll contact you soon."
+        );
+        contactForm.reset();
+        contactForm.classList.remove("was-validated");
       },
-      function (error) {
-        document.getElementById("formAlert").innerHTML =
-          "<div class='alert alert-danger'>❌ Failed to send message. Try again.</div>";
-        console.error("EmailJS Error:", error);
+      function () {
+        showAutoAlert(
+          "danger",
+          "❌ Failed to send message. Please try again."
+        );
       }
     );
   });
+
+  // Auto dismiss alert function
+  function showAutoAlert(type, message) {
+    formAlert.style.display = "block";
+    formAlert.innerHTML =
+      `<div class="alert alert-${type} fade show">${message}</div>`;
+
+    // Auto hide after 4 seconds
+    setTimeout(() => {
+      const alertBox = formAlert.querySelector(".alert");
+      if (!alertBox) return;
+
+      alertBox.classList.remove("show");
+      alertBox.classList.add("fade");
+
+      setTimeout(() => {
+        formAlert.style.display = "none";
+        formAlert.innerHTML = "";
+      }, 500);
+    }, 4000);
+  }
+
+});
+
 
 
 
