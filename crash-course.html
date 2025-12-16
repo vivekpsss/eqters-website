@@ -46,29 +46,64 @@
 
 
 <script>
-    
-(function() {
+document.addEventListener("DOMContentLoaded", function () {
+
   emailjs.init("D2BFMiAeXISalTvsv");
-})();
 
-document.getElementById("crashCourseForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+  const form = document.getElementById("crashCourseForm");
+  const statusMsg = document.getElementById("statusMsg");
 
-  emailjs.sendForm(
-    "service_0u0qci3",
-    "template_99la1gp",
-    this
-  )
-  .then(function() {
-      document.getElementById("statusMsg").innerHTML =
-        "<span class='text-success'>✅ Registered successfully! We’ll contact you shortly.</span>";
-      document.getElementById("webinarForm").reset();
-    }, function(error) {
-      document.getElementById("statusMsg").innerHTML =
-        "<span class='text-danger'>❌ Something went wrong. Please try again.</span>";
-      console.error("EmailJS Error:", error);
-    });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Show sending state
+    statusMsg.style.display = "block";
+    statusMsg.innerHTML =
+      "<div class='alert alert-info'>⏳ Registering you…</div>";
+
+    emailjs.sendForm(
+      "service_0u0qci3",
+      "template_99la1gp",
+      form
+    ).then(
+      function () {
+        showAutoAlert(
+          "success",
+          "✅ Registered successfully! We’ll contact you shortly."
+        );
+        form.reset();
+      },
+      function (error) {
+        showAutoAlert(
+          "danger",
+          "❌ Something went wrong. Please try again."
+        );
+        console.error("EmailJS Error:", error);
+      }
+    );
+  });
+
+  function showAutoAlert(type, message) {
+    statusMsg.style.display = "block";
+    statusMsg.innerHTML =
+      `<div class="alert alert-${type} fade show text-center">${message}</div>`;
+
+    // Auto hide after 4 seconds
+    setTimeout(() => {
+      const alertBox = statusMsg.querySelector(".alert");
+      if (!alertBox) return;
+
+      alertBox.classList.remove("show");
+
+      setTimeout(() => {
+        statusMsg.innerHTML = "";
+        statusMsg.style.display = "none";
+      }, 500);
+    }, 4000);
+  }
+
 });
 </script>
+
 </body>
 </html>
