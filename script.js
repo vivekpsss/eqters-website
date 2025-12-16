@@ -235,7 +235,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+const navbar = document.querySelector('.navbar');
 
+window.addEventListener('scroll', () => {
+  if (window.scrollY === 0) {
+    // Only show navbar at absolute top
+    navbar.classList.remove('hidden');
+  } else {
+    // Hide navbar everywhere else
+    navbar.classList.add('hidden');
+  }
+});
 
 
 
