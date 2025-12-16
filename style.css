@@ -208,3 +208,19 @@ body{
   transform: scale(1.15);
   opacity: 0.85;
 }
+
+
+.contact-icons a {
+  color: #ffffff;
+  font-size: 26px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.contact-icons a:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+.contact-icons a:hover {
+  color: #0d6efd; /* Bootstrap primary blue */
+}
