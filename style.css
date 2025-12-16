@@ -181,3 +181,30 @@ body{
   opacity: 0;
   transform: translateY(-6px);
 }
+
+/* Smart auto-hide navbar */
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+
+.contact-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.social-icon img {
+  width: 34px;
+  height: 34px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.social-icon:hover img {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
