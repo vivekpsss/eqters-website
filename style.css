@@ -4,7 +4,7 @@ html,body{height:100%}
 body{
   margin:0;
   font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background-color:#02051a;
+  background-color:white;
   color:#e6f0ff;
   -webkit-font-smoothing:antialiased;
 }
@@ -224,3 +224,4 @@ body{
 .contact-icons a:hover {
   color: #0d6efd; /* Bootstrap primary blue */
 }
+
