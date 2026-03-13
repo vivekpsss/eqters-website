@@ -1,41 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | EQTERS</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Eqters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
-<div class="container">
-<a class="navbar-brand" href="index.html">EQTERS</a>
-</div>
+<!-- ─── NAVIGATION ─── -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="/logo/eqters-logo.png" class="logo-img" alt="Eqters Logo">
+    <span class="logo-name">EQTERS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"   id="nav-home">Home</a></li>
+    <li><a href="about.html"   id="nav-about">About Us</a></li>
+    <li><a href="course.html"  id="nav-course">Course</a></li>
+    <li><a href="blog.html"    id="nav-blog">Blog</a></li>
+    <li><a href="contact.html" id="nav-contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<section class="py-5">
-<div class="container">
-
-<h1 class="text-center mb-4">About EQTERS</h1>
-
-<p>
-EQTERS is a professional trading education platform designed to help beginners and serious traders
-learn the financial markets with clarity and discipline. We focus on structured learning,
-risk management, and practical strategies that help traders build long-term consistency.
-</p>
-
-<p>
-Our programs cover Stocks, Forex, and Crypto trading with step-by-step guidance,
-real market examples, and simple explanations.
-</p>
-
+<!-- ─── MOBILE DRAWER ─── -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html"   onclick="closeMenu()">Home</a>
+  <a href="about.html"   onclick="closeMenu()">About Us</a>
+  <a href="course.html"  onclick="closeMenu()">Course</a>
+  <a href="blog.html"    onclick="closeMenu()">Blog</a>
+  <a href="contact.html" class="mobile-cta" onclick="closeMenu()">Contact Us &rarr;</a>
 </div>
+
+
+<!-- ─── PAGE HEADER ─── -->
+<div class="page-header">
+  <span class="eyebrow">About Eqters</span>
+  <h1>Built on Responsibility.<br>Driven by Vision.</h1>
+  <p>We are a professional trading education platform with a long-term mission — and an honest approach to teaching financial skills.</p>
+</div>
+
+
+<!-- ─── OUR STORY ─── -->
+<section>
+  <div class="container">
+    <div class="about-story">
+      <div class="about-story-text">
+        <span class="eyebrow">Our Story</span>
+        <h2>How Eqters Began</h2>
+        <p>Eqters was founded because we saw a fundamental problem in trading education — too much hype, too many promises, and too little real professional guidance.</p>
+        <p>We are not just educators. We are professionals building a financial services company, and we know exactly what skilled traders need to succeed in the real world. That knowledge shapes everything we teach.</p>
+        <p>Our commitment is simple: responsible, structured, and professional trading education — delivered entirely in Malayalam so that serious learners are never held back by language.</p>
+      </div>
+      <div class="about-visual">
+        <div>
+          <h3>2025</h3>
+          <p style="font-size:18px; margin-bottom: 4px;">Founded with Purpose</p>
+          <p>Professional trading education<br>for the Malayalam-speaking world</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<div class="divider"></div>
+
+
+<!-- ─── MISSION / VISION / PHILOSOPHY ─── -->
+<section style="background: var(--gray-50);">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 56px;">
+      <span class="eyebrow">Our Principles</span>
+      <h2 class="section-title">Mission, Vision &amp; Philosophy</h2>
+    </div>
+    <div class="mvp-grid">
+      <div class="mvp-card">
+        <div class="mvp-label">Mission</div>
+        <h3>Educate Responsibly</h3>
+        <p>To provide professional, structured, and honest trading education in Malayalam — helping learners build real skills without unrealistic expectations or harmful hype.</p>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-label">Vision</div>
+        <h3>Build an Ecosystem</h3>
+        <p>To create a financial services ecosystem where skilled traders can grow, connect with professional funders, and build sustainable careers in financial markets.</p>
+      </div>
+      <div class="mvp-card">
+        <div class="mvp-label">Philosophy</div>
+        <h3>Trading Is a Profession</h3>
+        <p>We believe trading should be treated with the same seriousness as any other professional career — with structured learning, ethical practice, and continuous improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── LONG-TERM VISION ─── -->
+<section class="vision-section">
+  <div class="container">
+    <div class="vision-inner">
+      <div class="vision-text">
+        <span class="eyebrow">Long-Term Vision</span>
+        <h2 class="section-title">Beyond Education —<br>Building a Financial Company</h2>
+        <p>Eqters is more than a course. We are actively building a full-scale financial services company — and our education platform is the foundation of that vision.</p>
+        <p>We already have established connections with professional funders who are seeking consistent, disciplined traders. Our long-term goal is to bridge our best students with real funding opportunities.</p>
+        <p>Every person who learns with us is a potential future partner in something much larger than a course.</p>
+      </div>
+      <div class="vision-card">
+        <div class="vision-pill">🏛️ Financial Services Vision</div>
+        <h3>Our Roadmap</h3>
+        <p>We are building in stages — starting with education, moving toward professional services and a structured pathway to funded trading.</p>
+        <ul class="vision-list">
+          <li>Stage 1 — Professional trading education platform (now)</li>
+          <li>Stage 2 — Community of skilled, trained traders</li>
+          <li>Stage 3 — Connect top students with professional funders</li>
+          <li>Stage 4 — Launch of full financial services company</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">Eq<span>ters</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="course.html">Course</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>© 2025 Eqters. All rights reserved.</p>
+</footer>
+
+<script src="nav.js"></script>
 </body>
 </html>
