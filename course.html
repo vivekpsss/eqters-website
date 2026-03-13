@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course — Eqters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="/logo/eqters-logo.png" class="logo-img" alt="Eqters Logo">
+    <span class="logo-name">EQTERS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"   id="nav-home">Home</a></li>
+    <li><a href="about.html"   id="nav-about">About Us</a></li>
+    <li><a href="course.html"  id="nav-course">Course</a></li>
+    <li><a href="blog.html"    id="nav-blog">Blog</a></li>
+    <li><a href="contact.html" id="nav-contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── MOBILE DRAWER ─── -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html"   onclick="closeMenu()">Home</a>
+  <a href="about.html"   onclick="closeMenu()">About Us</a>
+  <a href="course.html"  onclick="closeMenu()">Course</a>
+  <a href="blog.html"    onclick="closeMenu()">Blog</a>
+  <a href="contact.html" class="mobile-cta" onclick="closeMenu()">Contact Us &rarr;</a>
+</div>
+
+
+<!-- ─── PAGE HEADER ─── -->
+<div class="page-header">
+  <span class="eyebrow">Professional Trading Education</span>
+  <h1>The Eqters<br>Core Program</h1>
+  <p>A complete, structured trading education — from market foundations to a professional trading mindset. Taught entirely in Malayalam.</p>
+</div>
+
+
+<!-- ─── COURSE OVERVIEW + SIDEBAR ─── -->
+<section>
+  <div class="container">
+    <div class="course-overview">
+
+      <!-- Left: overview text + curriculum -->
+      <div class="course-overview-text">
+        <span class="eyebrow">Course Overview</span>
+        <h2>What This Program<br>Is Designed to Do</h2>
+        <p>The Eqters Core Program is a structured educational journey built to give you a genuine, professional understanding of financial market trading.</p>
+        <p>This is not a collection of random tips or indicators. It is a progressive curriculum — each module building on the last — designed to develop a complete, professional trading skill set.</p>
+        <p>By the end of this program, you will have a system. Your own strategy, your own rules, and the discipline to follow them.</p>
+
+        <div class="curriculum">
+          <h2>Curriculum</h2>
+          <div class="module-list">
+            <div class="module-item">
+              <div class="module-num">01</div>
+              <div class="module-info"><h4>Introduction to Financial Markets</h4><p>How markets work, who the participants are, and what drives price.</p></div>
+            </div>
+            <div class="module-item">
+              <div class="module-num">02</div>
+              <div class="module-info"><h4>Reading Price &amp; Market Structure</h4><p>Chart reading fundamentals, candlestick analysis, and understanding market phases.</p></div>
+            </div>
+            <div class="module-item">
+              <div class="module-num">03</div>
+              <div class="module-info"><h4>Technical Analysis</h4><p>Key technical tools, support and resistance, trends, and high-probability setups.</p></div>
+            </div>
+            <div class="module-item">
+              <div class="module-num">04</div>
+              <div class="module-info"><h4>Risk &amp; Capital Management</h4><p>Position sizing, risk-reward, stop loss strategy, and protecting your capital.</p></div>
+            </div>
+            <div class="module-item">
+              <div class="module-num">05</div>
+              <div class="module-info"><h4>Trading Psychology</h4><p>The mental game of trading — managing bias, emotions, and building discipline.</p></div>
+            </div>
+            <div class="module-item">
+              <div class="module-num">06</div>
+              <div class="module-info"><h4>Building Your Personal Strategy</h4><p>Define your edge, document your rules, and build a strategy you can trust.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: sticky info card -->
+      <div>
+        <div class="course-card">
+          <h3>Eqters Core Program</h3>
+          <div class="course-meta">
+            <div class="meta-item"><span class="meta-icon">🗣️</span> Taught entirely in Malayalam</div>
+            <div class="meta-item"><span class="meta-icon">📐</span> Structured, progressive curriculum</div>
+            <div class="meta-item"><span class="meta-icon">📊</span> Real market chart analysis</div>
+            <div class="meta-item"><span class="meta-icon">🧠</span> Psychology &amp; mindset training</div>
+            <div class="meta-item"><span class="meta-icon">⚙️</span> Personal strategy development</div>
+            <div class="meta-item"><span class="meta-icon">🛡️</span> Risk management framework</div>
+          </div>
+          <a href="contact.html" class="btn-primary" style="width:100%; justify-content: center;">Enquire About Enrollment →</a>
+          <p style="font-size:12px; color:#888; margin-top:16px; text-align:center; line-height:1.6;">Trading involves risk. This course teaches skills and does not guarantee trading profits.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── WHO IT'S FOR ─── -->
+<section class="for-whom">
+  <div class="container">
+    <span class="eyebrow">Who This Is For</span>
+    <h2 class="section-title">Is This Course<br>Right for You?</h2>
+    <div class="for-whom-grid">
+      <div class="for-card"><span class="for-check">✓</span><p>Complete beginners who want to learn trading from the ground up — properly.</p></div>
+      <div class="for-card"><span class="for-check">✓</span><p>Self-taught traders who lack structure and want a professional framework.</p></div>
+      <div class="for-card"><span class="for-check">✓</span><p>Professionals who want to develop trading as a second income stream.</p></div>
+      <div class="for-card"><span class="for-check">✓</span><p>Anyone who prefers learning complex financial concepts in clear Malayalam.</p></div>
+      <div class="for-card"><span class="for-check">✓</span><p>People serious about treating trading as a skill, not a gamble.</p></div>
+      <div class="for-card"><span class="for-check">✓</span><p>Motivated learners with a long-term, disciplined approach to building a new career.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── CTA BANNER ─── -->
+<div class="contact-mini">
+  <h2>Ready to Enroll?</h2>
+  <p>Contact us to learn more about the program, schedule, and enrollment process.</p>
+  <a href="contact.html" class="btn-primary" style="background: var(--blue); margin: 0 auto;">Contact Us →</a>
+</div>
+
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">Eq<span>ters</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="course.html">Course</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>© 2025 Eqters. All rights reserved.</p>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
