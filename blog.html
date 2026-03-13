@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Eqters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="/logo/eqters-logo.png" class="logo-img" alt="Eqters Logo">
+    <span class="logo-name">EQTERS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"   id="nav-home">Home</a></li>
+    <li><a href="about.html"   id="nav-about">About Us</a></li>
+    <li><a href="course.html"  id="nav-course">Course</a></li>
+    <li><a href="blog.html"    id="nav-blog">Blog</a></li>
+    <li><a href="contact.html" id="nav-contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ─── MOBILE DRAWER ─── -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html"   onclick="closeMenu()">Home</a>
+  <a href="about.html"   onclick="closeMenu()">About Us</a>
+  <a href="course.html"  onclick="closeMenu()">Course</a>
+  <a href="blog.html"    onclick="closeMenu()">Blog</a>
+  <a href="contact.html" class="mobile-cta" onclick="closeMenu()">Contact Us &rarr;</a>
+</div>
+
+
+<!-- ─── PAGE HEADER ─── -->
+<div class="page-header">
+  <span class="eyebrow">Eqters Blog</span>
+  <h1>Insights on Trading,<br>Markets &amp; Mindset</h1>
+  <p>Clear, professional articles on trading education — written to help you build your knowledge the right way.</p>
+</div>
+
+
+<!-- ─── ARTICLES ─── -->
+<section>
+  <div class="container">
+
+    <!-- Category pills -->
+    <div class="categories">
+      <div class="cat-pill active">All Articles</div>
+      <div class="cat-pill">Trading Basics</div>
+      <div class="cat-pill">Trading Psychology</div>
+      <div class="cat-pill">Market Analysis</div>
+      <div class="cat-pill">Risk Management</div>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- Featured -->
+      <div class="blog-article featured">
+        <div class="article-img feat" style="background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);">
+          <div>
+            <span class="article-cat">Trading Basics</span>
+            <h3>What is Trading?<br>A Professional Introduction</h3>
+          </div>
+        </div>
+        <div class="article-body">
+          <p>Trading is the systematic buying and selling of financial instruments to profit from price changes. Unlike gambling, professional trading is built on analysis, defined rules, risk management, and disciplined execution. Understanding what trading actually is — and what it is not — is the first step toward approaching markets with the right mindset and realistic expectations.</p>
+          <span class="meta">Trading Basics · 8 min read</span>
+        </div>
+      </div>
+
+      <div class="blog-article">
+        <div class="article-img" style="background: linear-gradient(135deg, #0891b2 0%, #0e4f6e 100%);">
+          <div><span class="article-cat">Risk Management</span><h3>Why Risk Management Comes First</h3></div>
+        </div>
+        <div class="article-body">
+          <p>Every professional trader's primary job is to protect capital. Learn the fundamentals of risk management that separate serious traders from everyone else.</p>
+          <span class="meta">Risk Management · 6 min read</span>
+        </div>
+      </div>
+
+      <div class="blog-article">
+        <div class="article-img" style="background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);">
+          <div><span class="article-cat">Trading Psychology</span><h3>The Emotional Trap Every Trader Faces</h3></div>
+        </div>
+        <div class="article-body">
+          <p>Fear and greed are the two emotions that destroy most traders. Understanding how to manage your psychology is as important as any technical skill.</p>
+          <span class="meta">Psychology · 7 min read</span>
+        </div>
+      </div>
+
+      <div class="blog-article">
+        <div class="article-img" style="background: linear-gradient(135deg, #059669 0%, #064e3b 100%);">
+          <div><span class="article-cat">Market Analysis</span><h3>Understanding Market Structure</h3></div>
+        </div>
+        <div class="article-body">
+          <p>Before studying indicators, learn to read raw price. Market structure is the foundation of all serious technical analysis approaches.</p>
+          <span class="meta">Market Analysis · 9 min read</span>
+        </div>
+      </div>
+
+      <div class="blog-article">
+        <div class="article-img" style="background: linear-gradient(135deg, #d97706 0%, #92400e 100%);">
+          <div><span class="article-cat">Trading Basics</span><h3>Trading vs Investing: What's the Difference?</h3></div>
+        </div>
+        <div class="article-body">
+          <p>Many people confuse trading with long-term investing. Both are valid approaches, but they require very different skills, timeframes, and mindsets.</p>
+          <span class="meta">Trading Basics · 5 min read</span>
+        </div>
+      </div>
+
+      <div class="blog-article">
+        <div class="article-img" style="background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);">
+          <div><span class="article-cat">Risk Management</span><h3>How to Size Your Positions Correctly</h3></div>
+        </div>
+        <div class="article-body">
+          <p>Position sizing is one of the most critical — and most ignored — skills in trading. This article explains the logic behind proper trade sizing.</p>
+          <span class="meta">Risk Management · 6 min read</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">Eq<span>ters</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="course.html">Course</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <p>© 2025 Eqters. All rights reserved.</p>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+  /* ── Category filter pills ── */
+  document.querySelectorAll('.cat-pill').forEach(pill => {
+    pill.addEventListener('click', function () {
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
