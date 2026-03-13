@@ -1101,17 +1101,16 @@
 
 
 
-  
-
 .nav-logo {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  flex-shrink: 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--black);
+  letter-spacing: -0.3px;
 }
-
-.logo-img { height: 36px; }
 
 .logo-name {
   font-family: var(--serif);
@@ -1120,39 +1119,11 @@
   letter-spacing: -0.3px;
 }
 
-.logo-name span { color: var(--blue); }
-
-.nav-links {
-  display: flex;
-  gap: 4px;
-  list-style: none;
-  align-items: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); /* perfectly centered */
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.nav-cta {
-  background: var(--black);
-  color: var(--white) !important;
-  padding: 9px 20px;
-  border-radius: 6px;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  text-decoration: none;
-  transition: background 0.2s;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.nav-cta:hover { background: var(--blue) !important; }
 
 /* Hide center links on tablet/mobile, show hamburger */
 @media (max-width: 1024px) {
@@ -1168,22 +1139,20 @@
 <!-- ─── NAVIGATION ─── -->
 <nav>
   <div class="nav-logo" onclick="showPage('home')">
-    <img src="/images/eqters-logo.PNG" class="logo-img" alt="Eqters Logo"/>
-    <span class="logo-name">Eq<span>ters</span></span>
-  </div>
+  <img src="/images/eqters-logo.PNG" class="logo-img"/>
+  <span class="logo-name">Eqters</span>
+</div>
 
   <ul class="nav-links">
     <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
     <li><a onclick="showPage('about')" id="nav-about">About Us</a></li>
     <li><a onclick="showPage('course')" id="nav-course">Course</a></li>
     <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact" class="nav-cta">Contact Us</a></li>
   </ul>
-
-  <div class="nav-right">
-    <a onclick="showPage('contact')" id="nav-contact" class="nav-cta">Contact Us →</a>
-    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
   </div>
 </nav>
 
@@ -2022,6 +1991,7 @@
 </script>
 </body>
 </html>
+
 
 
 
