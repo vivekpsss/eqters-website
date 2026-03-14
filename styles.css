@@ -397,7 +397,7 @@ footer .footer-links a:hover { color: white; }
 .step p { font-size: 13px; color: var(--gray-400); line-height: 1.6; font-weight: 300; }
 
 /* ─── TESTIMONIALS ─── */
-.testimonials-section { background: var(--gray-50); }
+.testimonials-section { background: var(--gray-50); display:none; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
 .testimonial-card {
   background: white; border: 1px solid var(--gray-200);
