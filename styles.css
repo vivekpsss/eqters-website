@@ -179,7 +179,8 @@ footer .footer-links a:hover { color: white; }
 
 /* ─── HERO SMALL PILL ─── */
 .hero-small-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   border: 1px solid var(--gray-200);
@@ -187,10 +188,13 @@ footer .footer-links a:hover { color: white; }
   padding: 8px 20px;
   margin-bottom: 28px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  width: fit-content;
+  max-width: 100%;
 }
 .hero-small-pill .hero-small {
   margin-bottom: 0;
+  white-space: normal;
+  word-break: break-word;
+  font-size: 11px;
 }
 
 /* ─── HERO BADGE (Pre-Sale pill) ─── */
@@ -592,6 +596,8 @@ footer .footer-links a:hover { color: white; }
   .hero-stat .num { font-size: 28px; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .hero-actions .btn-primary, .hero-actions .btn-outline { width: 100%; justify-content: center; }
+  .hero-small-pill { display: inline-flex; max-width: 100%; }
+  .hero-small-pill .hero-small { font-size: 10px; letter-spacing: 1.2px; }
   .why-grid, .features-grid, .testimonials-grid, .mvp-grid,
   .for-whom-grid, .why-us-grid, .teach-steps { grid-template-columns: 1fr; }
   .teach-steps { gap: 32px; }
