@@ -195,7 +195,7 @@ footer .footer-links a:hover { color: white; }
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  font-size: clamp(52px, 7.5vw, 96px);
+  font-size: clamp(36px, 5vw, 60px);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   font-weight: 700;
   letter-spacing: -2px;
