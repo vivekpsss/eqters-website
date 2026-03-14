@@ -177,6 +177,12 @@ footer .footer-links { display: flex; gap: 28px; justify-content: center; margin
 footer .footer-links a { color: #555; text-decoration: none; font-size: 13px; transition: color 0.2s; }
 footer .footer-links a:hover { color: white; }
 
+.page-header .hero-small-pill {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
 /* ─── HERO CENTERED VARIANT ─── */
 .hero-centered .hero-inner {
   text-align: center;
@@ -226,6 +232,10 @@ footer .footer-links a:hover { color: white; }
   white-space: normal;
   word-break: break-word;
   font-size: 11px;
+}
+
+.hero-small-pill .hero-small::before {
+  display: none;
 }
 
 /* ─── HERO BADGE (Pre-Sale pill) ─── */
@@ -432,7 +442,7 @@ footer .footer-links a:hover { color: white; }
 .step p { font-size: 13px; color: var(--gray-400); line-height: 1.6; font-weight: 300; }
 
 /* ─── TESTIMONIALS ─── */
-.testimonials-section { background: var(--gray-50); display:none;}
+.testimonials-section { background: var(--gray-50); }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
 .testimonial-card {
   background: white; border: 1px solid var(--gray-200);
