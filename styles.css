@@ -741,6 +741,63 @@ footer .footer-links a:hover { color: white; }
   to   { transform: scale(1); opacity: 1; }
 }
 
+/* ─── PHONE FLOATING BUTTON ─── */
+.phone-float {
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: wa-pop 0.5s cubic-bezier(0.175,0.885,0.32,1.275) 0.15s both;
+}
+.phone-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,99,235,0.55);
+}
+.phone-float svg { width: 26px; height: 26px; fill: white; }
+.phone-float::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37,99,235,0.4);
+  animation: wa-ring 2s ease-out infinite 0.5s;
+}
+.phone-float .phone-tooltip {
+  position: absolute;
+  right: 68px;
+  background: #1a1a1a;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.phone-float .phone-tooltip::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: #1a1a1a;
+}
+.phone-float:hover .phone-tooltip { opacity: 1; }
+
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
