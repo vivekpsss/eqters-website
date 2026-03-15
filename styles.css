@@ -311,18 +311,18 @@ footer .footer-links a:hover { color: white; }
 .hero-stat .label { font-size: 13px; color: var(--gray-400); font-weight: 400; margin-top: 2px; }
 
 /* ─── LETTER FROM CEO ─── */
-.letter-section { background: var(--black); color: var(--white); }
+.letter-section { background: var(--gray-50); color: var(--black); }
 .letter-card {
-  background: #141414; border: 1px solid #2a2a2a;
+  background: var(--white); border: 1px solid var(--gray-200);
   border-radius: 16px; padding: 64px;
   max-width: 820px; margin: 0 auto; position: relative;
 }
 .letter-card::before {
   content: '"'; font-family: var(--serif); font-size: 160px;
-  color: rgba(37,99,235,0.15); position: absolute; top: 20px; left: 40px; line-height: 1;
+  color: rgba(37,99,235,0.08); position: absolute; top: 20px; left: 40px; line-height: 1;
 }
 .letter-card p {
-  font-size: 17px; line-height: 1.9; color: #c8c8c8;
+  font-size: 17px; line-height: 1.9; color: var(--gray-600);
   margin-bottom: 24px; font-weight: 300; position: relative;
 }
 .letter-sig { margin-top: 40px; display: flex; align-items: center; gap: 18px; }
@@ -332,7 +332,7 @@ footer .footer-links a:hover { color: white; }
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-family: var(--serif); font-size: 20px; color: white;
 }
-.sig-name { font-family: var(--serif); font-size: 18px; color: white; }
+.sig-name { font-family: var(--serif); font-size: 18px; color: var(--black); }
 .sig-title { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
 
 /* ─── BLOG HIGHLIGHT ─── */
@@ -411,16 +411,16 @@ footer .footer-links a:hover { color: white; }
 .us-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 300; }
 
 /* ─── COURSE FEATURES ─── */
-.features-section { background: var(--black); color: white; }
+.features-section { background: var(--gray-50); color: var(--black); }
 .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
 .feat-card {
-  background: #141414; border: 1px solid #222;
-  border-radius: 12px; padding: 36px 30px; transition: border-color 0.2s;
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: 12px; padding: 36px 30px; transition: border-color 0.2s, box-shadow 0.2s;
 }
-.feat-card:hover { border-color: #2563eb44; }
-.feat-num { font-family: var(--serif); font-size: 48px; color: #1e293b; line-height: 1; margin-bottom: 16px; -webkit-text-stroke: 1px #2a2a2a; }
-.feat-card h4 { font-size: 17px; font-weight: 600; color: white; margin-bottom: 10px; }
-.feat-card p { font-size: 14px; color: #888; line-height: 1.7; font-weight: 300; }
+.feat-card:hover { border-color: var(--blue-mid); box-shadow: 0 8px 32px rgba(37,99,235,0.08); }
+.feat-num { font-family: var(--serif); font-size: 48px; color: var(--gray-200); line-height: 1; margin-bottom: 16px; }
+.feat-card h4 { font-size: 17px; font-weight: 600; color: var(--black); margin-bottom: 10px; }
+.feat-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 300; }
 
 /* ─── HOW WE TEACH ─── */
 .teach-steps {
