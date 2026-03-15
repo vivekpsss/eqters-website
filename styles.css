@@ -633,7 +633,9 @@ footer .footer-links a:hover { color: white; }
   .page-header { padding: 100px 20px 60px; }
   .contact-mini { padding: 64px 20px; }
   footer { padding: 40px 20px; }
-  .hero h1 { font-size: clamp(32px, 8vw, 48px); letter-spacing: -1px; }
+  .hero h1 { font-size: clamp(28px, 7.5vw, 38px); letter-spacing: -1px; }
+  .hero-centered h1,
+  .hero.hero-centered .hero-inner h1 { font-size: clamp(28px, 7.5vw, 38px); letter-spacing: -1px; }
   .hero-sub { font-size: 16px; }
   .section-title { font-size: clamp(26px, 7vw, 36px); }
   .page-header h1 { font-size: clamp(28px, 8vw, 42px); }
