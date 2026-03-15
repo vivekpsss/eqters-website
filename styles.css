@@ -157,7 +157,7 @@ section { padding: 100px 40px; }
   text-align: center;
 }
 .page-header h1 {
-  font-family: var(--serif); font-size: clamp(36px, 5vw, 60px);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; font-size: clamp(36px, 5vw, 60px);
   letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px;
 }
 .page-header p {
