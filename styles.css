@@ -391,6 +391,23 @@ footer .footer-links a:hover { color: white; }
   font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin-bottom: 24px;
 }
 .vision-text p { color: var(--gray-600); font-size: 16px; line-height: 1.8; margin-bottom: 18px; font-weight: 300; }
+.vision-sub-block {
+  margin-top: 32px; padding: 24px 28px;
+  background: white; border-radius: 12px;
+  border: 1px solid var(--gray-200);
+}
+.vision-sub-block h4 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px; font-weight: 700; color: var(--black);
+  margin-bottom: 10px;
+}
+.vision-sub-block p { font-size: 14px; color: var(--gray-600); line-height: 1.8; margin-bottom: 10px; font-weight: 300; }
+.vision-sub-block p:last-of-type { margin-bottom: 0; }
+.vision-cta-line {
+  margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid var(--gray-100);
+  font-size: 12px; font-weight: 700; color: var(--blue);
+}
 .vision-card { background: white; border-radius: 14px; padding: 40px; border: 1px solid var(--gray-200); }
 .vision-pill {
   display: inline-flex; align-items: center; gap: 8px;
