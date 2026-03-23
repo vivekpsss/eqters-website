@@ -364,6 +364,7 @@ footer .footer-links a:hover { color: white; }
 .why-card {
   padding: 36px 32px; border: 1px solid var(--gray-200);
   border-radius: 12px; transition: border-color 0.2s, box-shadow 0.2s; background: white;
+  display: flex; flex-direction: column;
 }
 .why-card:hover { border-color: var(--blue-mid); box-shadow: 0 8px 32px rgba(37,99,235,0.08); }
 .why-icon {
@@ -371,15 +372,16 @@ footer .footer-links a:hover { color: white; }
   display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 20px;
 }
 .why-card h4 { font-family: var(--serif); font-size: 19px; margin-bottom: 10px; color: var(--black); }
-.why-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 300; }
+.why-card p { font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 300; flex: 1; }
 .why-cta-line {
-    margin-top: 12px;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--blue, #2563eb);
-    border-top: 1px solid var(--gray-100, #f3f4f6);
-    padding-top: 10px;
-  }
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-100);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.1px;
+}
 
 /* ─── VISION ─── */
 .vision-section { background: var(--blue-light); }
@@ -811,4 +813,3 @@ footer .footer-links a:hover { color: white; }
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
