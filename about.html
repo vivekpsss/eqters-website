@@ -24,18 +24,18 @@
     <li><a href="blog.html"    id="nav-blog">Blog</a></li>
     <li><a href="contact.html" id="nav-contact" class="nav-cta">Contact Us</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- ─── MOBILE DRAWER ─── -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="index.html">Home</a>
-  <a href="about.html">About Us</a>
-  <a href="course.html">Course</a>
-  <a href="blog.html">Blog</a>
-  <a href="contact.html" class="mobile-cta">Contact Us &rarr;</a>
+  <a href="index.html"   onclick="closeMenu()">Home</a>
+  <a href="about.html"   onclick="closeMenu()">About Us</a>
+  <a href="course.html"  onclick="closeMenu()">Course</a>
+  <a href="blog.html"    onclick="closeMenu()">Blog</a>
+  <a href="contact.html" class="mobile-cta" onclick="closeMenu()">Contact Us &rarr;</a>
 </div>
 
 <!-- ─── PAGE HEADER ─── -->
