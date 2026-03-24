@@ -313,18 +313,12 @@
 </section>
 
 
-<!-- ─── CONTACT US SECTION ─── -->
-<section id="contact-section" style="background: var(--gray-50);">
+<!-- ─── CONTACT LAYOUT ─── -->
+<section style="padding-top: 60px; padding-bottom: 80px;">
   <div class="container">
-    <div style="text-align: center; margin-bottom: 56px;">
-      <span class="eyebrow">Get in Touch</span>
-      <h2 class="section-title">Contact Us</h2>
-      <p class="section-sub" style="margin: 0 auto;">Have a question about our course? Want to learn more before enrolling? Reach out — we respond to every message.</p>
-    </div>
+    <div class="contact-layout" style="align-items: center;">
 
-    <div class="contact-layout">
-
-      <!-- Left: info -->
+      <!-- Left: contact info -->
       <div class="contact-info">
         <span class="eyebrow">Contact Information</span>
         <h2>Let's Start a Conversation</h2>
@@ -335,7 +329,7 @@
             <div class="contact-detail-icon">✉️</div>
             <div class="contact-detail-text">
               <div class="label">Email</div>
-              <div class="val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="38505d545457785d494c5d4a4b165b5755">[email&#160;protected]</a></div>
+              <div class="val">connecteqters@gmail.com</div>
             </div>
           </div>
           <div class="contact-detail">
@@ -353,54 +347,57 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div style="margin-top: 40px; padding: 28px; background: var(--blue-light); border-radius: 12px; border: 1px solid #bfdbfe;">
-          <p style="font-size:14px; color: var(--gray-600); line-height:1.7; font-weight:300;">
-            <strong style="color: var(--black); font-weight:600;">Disclaimer:</strong> Trading involves significant financial risk. Eqters is an educational platform. We do not provide investment advice and we do not guarantee trading profits. Please educate yourself thoroughly before risking any capital.
-          </p>
+      <!-- Right: contact form -->
+      <div class="contact-form" id="form-wrapper">
+
+        <!-- ── THE FORM ── -->
+        <div id="form-container">
+          <h3>Send Us a Message</h3>
+          <form id="contact-form" action="https://formspree.io/f/xreywdzl" method="POST">
+
+            <input type="hidden" name="_subject" value="New message from Eqters Contact Form">
+
+            <div class="form-group">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Contact Number">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span style="font-weight:400; color: var(--gray-400);">(Optional)</span></label>
+              <input type="email" id="email" name="email" placeholder="Email Address">
+            </div>
+            <button type="submit" class="btn-primary" id="submit-btn" style="width:100%; justify-content:center;">
+              <span id="btn-text">Send Message &#8594;</span>
+              <span id="btn-loading" style="display:none;">Sending&#8230;</span>
+            </button>
+          </form>
         </div>
-      </div>
 
-      <!-- Right: form -->
-      <div class="contact-form">
-        <h3>Send Us a Message</h3>
-        <form action="#" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="h-fname">First Name</label>
-              <input type="text" id="h-fname" name="fname" placeholder="First Name" required>
+        <!-- ── THANK YOU STATE (hidden initially) ── -->
+        <div id="thankyou-state" style="display:none;">
+          <div class="thankyou-inner">
+            <div class="thankyou-icon">
+              <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="26" cy="26" r="25" fill="none" stroke="#2563eb" stroke-width="2"/>
+                <path d="M14 26l9 9 15-18" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
-            <div class="form-group">
-              <label for="h-lname">Last Name</label>
-              <input type="text" id="h-lname" name="lname" placeholder="Last Name">
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. We've received your message and will get back to you within 24 hours.</p>
+            <div class="thankyou-detail">
+              <span>&#128231;</span> Check your inbox &#8212; a confirmation may be on its way.
             </div>
+            <button class="btn-outline" onclick="resetForm()" style="margin-top: 28px;">Send Another Message</button>
           </div>
-          <div class="form-group">
-            <label for="h-email">Email Address</label>
-            <input type="email" id="h-email" name="email" placeholder="Email Address" required>
-          </div>
-          <div class="form-group">
-            <label for="h-phone">Phone (Optional)</label>
-            <input type="tel" id="h-phone" name="phone" placeholder="Contact Number">
-          </div>
-          <div class="form-group">
-            <label for="h-topic">Topic</label>
-            <select id="h-topic" name="topic">
-              <option value="">Select a topic...</option>
-              <option>Course Enquiry</option>
-              <option>Enrollment Information</option>
-              <option>General Question</option>
-              <option>Partnership / Collaboration</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="h-message">Your Message</label>
-            <textarea id="h-message" name="message" placeholder="Tell us what you'd like to know..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Send Message →</button>
-        </form>
-      </div>
+        </div>
+
+      </div><!-- /.contact-form -->
 
     </div>
   </div>
