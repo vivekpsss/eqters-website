@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════
    EQTERS — nav.js
-   Shared navigation & mobile menu logic
+   Shared navigation & mobile menu logic + contact form
 ═══════════════════════════════════════════════════ */
 
 /* ── Highlight active nav link based on current page ── */
@@ -34,3 +34,75 @@ function closeMenu() {
 window.addEventListener('resize', () => {
   if (window.innerWidth > 1024) closeMenu();
 });
+
+
+/* ═══════════════════════════════════════════════════
+   CONTACT FORM — submit, loading state & thank-you
+═══════════════════════════════════════════════════ */
+(function () {
+  const form          = document.getElementById('contact-form');
+  if (!form) return; /* only runs on contact page */
+
+  const formContainer = document.getElementById('form-container');
+  const thankyouState = document.getElementById('thankyou-state');
+  const submitBtn     = document.getElementById('submit-btn');
+  const btnText       = document.getElementById('btn-text');
+  const btnLoading    = document.getElementById('btn-loading');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    /* Show loading state */
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        /* Swap form for thank-you card */
+        formContainer.style.animation = 'fadeOutUp 0.3s ease forwards';
+        setTimeout(() => {
+          formContainer.style.display = 'none';
+          thankyouState.style.display = 'block';
+          thankyouState.style.animation = 'fadeInUp 0.4s ease forwards';
+        }, 300);
+      } else {
+        showError('Something went wrong — try again');
+      }
+    } catch (err) {
+      showError('Network error — try again');
+    }
+  });
+
+  function showError(msg) {
+    submitBtn.disabled = false;
+    btnText.style.display = 'inline';
+    btnLoading.style.display = 'none';
+    btnText.textContent = msg;
+    submitBtn.style.background = '#dc2626';
+    setTimeout(() => {
+      btnText.textContent = 'Send Message →';
+      submitBtn.style.background = '';
+    }, 3000);
+  }
+
+  window.resetForm = function () {
+    form.reset();
+    thankyouState.style.display = 'none';
+    formContainer.style.display = 'block';
+    formContainer.style.animation = 'fadeInUp 0.4s ease forwards';
+    submitBtn.disabled = false;
+    btnText.style.display = 'inline';
+    btnLoading.style.display = 'none';
+    btnText.textContent = 'Send Message →';
+    submitBtn.style.background = '';
+  };
+})();
