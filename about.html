@@ -7,6 +7,62 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .story-list {
+      list-style: none;
+      margin: 16px 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .story-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--gray-600);
+      font-weight: 400;
+    }
+    .story-list li::before {
+      content: '→';
+      color: var(--blue);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .story-philosophy {
+      margin-top: 28px;
+      padding: 24px 28px;
+      background: var(--gray-50);
+      border-radius: 12px;
+      border: 1px solid var(--gray-200);
+    }
+    .philosophy-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 12px !important;
+    }
+    .philosophy-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .philosophy-items span {
+      font-size: 14px;
+      color: var(--gray-600);
+      font-weight: 400;
+    }
+    .philosophy-footer {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 0 !important;
+      padding-top: 12px;
+      border-top: 1px solid var(--gray-200);
+    }
+  </style>
 </head>
 <body>
 
