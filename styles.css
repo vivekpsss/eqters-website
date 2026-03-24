@@ -760,6 +760,70 @@ footer .footer-links a:hover { color: white; }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
+/* ─── CONTACT PAGE — ANIMATIONS & THANK-YOU STATE ─── */
+@keyframes fadeOutUp {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-16px); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.thankyou-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 56px 32px;
+}
+.thankyou-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 28px;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s both;
+}
+.thankyou-icon svg {
+  width: 100%;
+  height: 100%;
+}
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.thankyou-inner h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+  animation: fadeInUp 0.4s ease 0.2s both;
+}
+.thankyou-inner p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  max-width: 360px;
+  font-weight: 300;
+  margin-bottom: 0;
+  animation: fadeInUp 0.4s ease 0.3s both;
+}
+.thankyou-detail {
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: var(--blue-light);
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--gray-600);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInUp 0.4s ease 0.4s both;
+}
+
 /* ═══════════════════════════════════════
    RESPONSIVE — TABLET (768px – 1024px)
 ═══════════════════════════════════════ */
