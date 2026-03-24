@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════
    EQTERS — nav.js
-   Shared navigation & mobile menu logic + contact form
+   Shared navigation, mobile menu, contact form & blog
 ═══════════════════════════════════════════════════ */
 
 /* ── Highlight active nav link based on current page ── */
@@ -34,6 +34,22 @@ function closeMenu() {
 window.addEventListener('resize', () => {
   if (window.innerWidth > 1024) closeMenu();
 });
+
+
+/* ═══════════════════════════════════════════════════
+   BLOG — category filter pills
+═══════════════════════════════════════════════════ */
+(function () {
+  const pills = document.querySelectorAll('.cat-pill');
+  if (!pills.length) return; /* only runs on blog page */
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', function () {
+      pills.forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+})();
 
 
 /* ═══════════════════════════════════════════════════
