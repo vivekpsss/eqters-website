@@ -507,7 +507,91 @@ footer .footer-links a:hover { color: white; }
 .contact-mini p { color: #888; margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; }
 
 /* ─── ABOUT PAGE ─── */
+/* ═══════════════════════════════════════════════════
+   EQTERS — about.css
+   Page-specific styles for about.html
+═══════════════════════════════════════════════════ */
 
+/* ─── SECTION HEADER ─── */
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* ─── MVP SECTION BACKGROUND ─── */
+.mvp-section {
+  background: var(--gray-50);
+}
+
+/* ─── OUR STORY — LIST ─── */
+.story-list {
+  list-style: none;
+  margin: 16px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.story-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--gray-600);
+  font-weight: 400;
+}
+
+.story-list li::before {
+  content: '→';
+  color: var(--blue);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ─── OUR STORY — PHILOSOPHY BOX ─── */
+.story-philosophy {
+  margin-top: 28px;
+  padding: 24px 28px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+}
+
+.philosophy-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.philosophy-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.philosophy-items span {
+  font-size: 14px;
+  color: var(--gray-600);
+  font-weight: 400;
+}
+
+.philosophy-footer {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* ─── ABOUT VISUAL CARD ─── */
+.about-visual-title {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
 .story-list {
       list-style: none;
       margin: 16px 0 24px;
