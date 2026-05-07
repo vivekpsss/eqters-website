@@ -4,17 +4,7 @@
    Contact Form, Blog Filters
 ═══════════════════════════════════════════════════ */
 
-/* ── Inject progress bar ── */
-(function () {
-  const bar = document.createElement('div');
-  bar.id = 'progress-bar';
-  document.body.prepend(bar);
-  window.addEventListener('scroll', () => {
-    const max  = document.documentElement.scrollHeight - window.innerHeight;
-    const pct  = max > 0 ? (window.scrollY / max) * 100 : 0;
-    bar.style.width = pct + '%';
-  }, { passive: true });
-})();
+
 
 /* ── Nav scroll effect ── */
 (function () {
