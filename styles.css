@@ -1051,17 +1051,7 @@ footer .footer-links a:hover { color: white; }
 }
 .phone-float:hover .phone-tooltip { opacity: 1; }
 
-/* ════════════════════════════════
-   PROGRESS BAR
-════════════════════════════════ */
-#progress-bar {
-  position: fixed; top: 0; left: 0; z-index: 200;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue), #60a5fa);
-  width: 0%; border-radius: 0 2px 2px 0;
-  transition: width 0.1s linear;
-  box-shadow: 0 0 8px rgba(37,99,235,0.5);
-}
+
 
 /* ════════════════════════════════
    RESPONSIVE — TABLET
