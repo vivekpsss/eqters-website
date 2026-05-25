@@ -7,6 +7,325 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── EXTRA STYLES FOR NEW SECTIONS ── */
+
+    /* Problem Section */
+    .problem-section { background: #050505; color: white; }
+    .problem-section .eyebrow { color: #ef4444; }
+    .problem-section .eyebrow::before { background: #ef4444; }
+    .problem-section .section-title { color: white; }
+    .problem-section .section-sub { color: #999; }
+    .problem-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      margin-top: 56px; align-items: center;
+    }
+    .problem-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .problem-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 20px; background: #111; border-radius: 10px;
+      border: 1px solid #1e1e1e; font-size: 15px; color: #ccc; font-weight: 300;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .problem-list li:hover { background: #161616; border-color: #333; }
+    .problem-list li::before { content: '✕'; color: #ef4444; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .problem-callout {
+      background: #0f0f0f; border: 1px solid #1e1e1e;
+      border-radius: 16px; padding: 40px;
+    }
+    .problem-callout p {
+      font-size: 17px; color: #bbb; line-height: 1.85; font-weight: 300; margin-bottom: 16px;
+    }
+    .problem-callout .highlight-line {
+      font-size: 20px; font-weight: 700; color: white; margin-top: 24px; margin-bottom: 0;
+      padding-top: 24px; border-top: 1px solid #222;
+    }
+    .highlight-blue { color: var(--blue); }
+
+    /* Shift Section */
+    .shift-section { background: var(--gray-50); }
+    .shift-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .shift-card {
+      background: var(--black); color: white; border-radius: 20px; padding: 44px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+      position: relative; overflow: hidden;
+    }
+    .shift-card::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .shift-card h3 { font-family: var(--sans); font-size: 22px; font-weight: 700; margin-bottom: 24px; color: white; position: relative; }
+    .shift-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .shift-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: #bbb; font-weight: 300; padding: 10px 0;
+      border-bottom: 1px solid #1e1e1e; position: relative;
+    }
+    .shift-list li:last-child { border-bottom: none; }
+    .shift-list li::before { content: '✔'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .shift-compare {
+      margin-top: 32px; padding: 20px; background: #0a0a0a; border-radius: 12px;
+      border: 1px solid #1e1e1e; position: relative;
+    }
+    .shift-compare-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
+    .shift-compare-row:first-child { border-bottom: 1px solid #1a1a1a; padding-bottom: 12px; margin-bottom: 4px; }
+    .cmp-bad { color: #ef4444; font-size: 13px; font-weight: 500; }
+    .cmp-good { color: #22c55e; font-size: 13px; font-weight: 700; }
+    .cmp-vs { font-size: 11px; color: #555; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+    .shift-text { display: flex; flex-direction: column; gap: 20px; }
+    .shift-text p { color: var(--gray-600); font-size: 16px; line-height: 1.8; font-weight: 300; }
+
+    /* Story Section */
+    .story-section { background: white; }
+    .story-inner { max-width: 760px; margin: 0 auto; }
+    .story-body {
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: 20px; padding: 56px 64px; position: relative; overflow: hidden;
+    }
+    .story-body::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--blue), #1e40af);
+    }
+    .story-body p {
+      font-size: 17px; color: var(--gray-600); line-height: 1.95; margin-bottom: 22px; font-weight: 300;
+    }
+    .story-body p:last-of-type { margin-bottom: 0; }
+    .story-body strong { color: var(--black); font-weight: 600; }
+    .story-sig { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--gray-200); display: flex; align-items: center; gap: 16px; }
+    .story-avatar {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--blue) 0%, #1d4ed8 100%);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: white; font-weight: 700; flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+    }
+    .story-sig-name { font-size: 16px; font-weight: 700; color: var(--black); }
+    .story-sig-role { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
+
+    /* Framework Section */
+    .framework-section { background: var(--gray-50); }
+    .framework-intro { font-size: 16px; color: var(--gray-600); max-width: 580px; line-height: 1.8; font-weight: 300; margin-bottom: 56px; }
+    .framework-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+    .framework-grid::before {
+      content: ''; position: absolute; top: 38px; left: calc(10%);
+      width: 80%; height: 2px;
+      background: linear-gradient(90deg, var(--blue), #1e40af);
+      z-index: 0; opacity: 0.25;
+    }
+    .fw-step {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 0 12px; position: relative; z-index: 1;
+      cursor: default;
+    }
+    .fw-dot {
+      width: 76px; height: 76px; background: white;
+      border: 2px solid var(--gray-200); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin-bottom: 18px;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s, background 0.25s;
+      box-shadow: var(--shadow-sm);
+    }
+    .fw-step:hover .fw-dot {
+      border-color: var(--blue); transform: scale(1.1);
+      box-shadow: var(--shadow-blue); background: var(--blue-light);
+    }
+    .fw-step h4 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 6px; transition: color 0.25s; }
+    .fw-step:hover h4 { color: var(--blue); }
+    .fw-step p { font-size: 12px; color: var(--gray-400); line-height: 1.6; font-weight: 300; }
+
+    /* Social Proof Section */
+    .proof-section { background: white; }
+    .proof-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .metric-card {
+      background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 16px;
+      padding: 40px 32px; text-align: center;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    }
+    .metric-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--blue-mid); }
+    .metric-num { font-family: var(--sans); font-size: 52px; font-weight: 700; color: var(--blue); letter-spacing: -2px; line-height: 1; margin-bottom: 8px; }
+    .metric-label { font-size: 14px; color: var(--gray-600); font-weight: 400; }
+    .proof-note {
+      margin-top: 40px; padding: 20px 28px;
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px;
+      font-size: 14px; color: #92400e; display: flex; align-items: center; gap: 10px;
+      max-width: 560px;
+    }
+    .testimonials-placeholder {
+      margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .t-placeholder {
+      background: var(--gray-50); border: 1px dashed var(--gray-200);
+      border-radius: var(--radius); padding: 32px; text-align: center;
+      min-height: 180px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+    }
+    .t-placeholder-icon { font-size: 28px; }
+    .t-placeholder p { font-size: 13px; color: var(--gray-400); font-weight: 300; }
+    .t-placeholder strong { font-size: 14px; color: var(--gray-600); font-weight: 600; }
+
+    /* What You Get Section */
+    .get-section { background: var(--gray-50); }
+    .get-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+    .get-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 28px 0; }
+    .get-list li {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px; background: white; border: 1px solid var(--gray-200);
+      border-radius: 10px; font-size: 15px; color: var(--gray-800); font-weight: 400;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+    .get-list li:hover { border-color: var(--blue-mid); box-shadow: var(--shadow-sm); transform: translateX(4px); }
+    .get-list li::before { content: '✔'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+    .bonus-card {
+      background: var(--black); color: white; border-radius: 18px; padding: 40px;
+      position: sticky; top: 88px;
+    }
+    .bonus-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(37,99,235,0.2); color: var(--blue-mid);
+      padding: 5px 14px; border-radius: 100px; font-size: 11px;
+      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      margin-bottom: 20px; border: 1px solid rgba(37,99,235,0.3);
+    }
+    .bonus-card h3 { font-family: var(--sans); font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+    .bonus-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .bonus-list li {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px; background: #111; border-radius: 10px; border: 1px solid #1e1e1e;
+      font-size: 14px; color: #ccc; font-weight: 300;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .bonus-list li:hover { background: #161616; border-color: #333; }
+    .bonus-list li .b-icon { font-size: 18px; flex-shrink: 0; }
+
+    /* Guarantee Section */
+    .guarantee-section { background: white; }
+    .guarantee-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .guarantee-badge {
+      width: 100px; height: 100px; background: var(--blue-light);
+      border: 3px solid var(--blue); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 42px; margin: 0 auto 32px;
+      box-shadow: 0 8px 32px rgba(37,99,235,0.15);
+    }
+    .guarantee-card {
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: 20px; padding: 52px 56px;
+      position: relative; overflow: hidden;
+    }
+    .guarantee-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--blue), #22c55e);
+    }
+    .guarantee-card h2 { font-family: var(--sans); font-size: 36px; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; }
+    .guarantee-card p { font-size: 16px; color: var(--gray-600); line-height: 1.8; font-weight: 300; margin-bottom: 16px; }
+    .guarantee-card p:last-of-type { margin-bottom: 0; }
+    .guarantee-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #dcfce7; color: #166534; padding: 8px 18px; border-radius: 100px;
+      font-size: 13px; font-weight: 600; margin-top: 24px; border: 1px solid #86efac;
+    }
+
+    /* FAQ Section */
+    .faq-section { background: var(--gray-50); }
+    .faq-list { max-width: 740px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200); overflow: hidden;
+    }
+    .faq-item:first-child { border-top: 1px solid var(--gray-200); }
+    .faq-question {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 8px; text-align: left; gap: 16px;
+      font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--black);
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--blue); }
+    .faq-icon {
+      width: 28px; height: 28px; background: var(--gray-100); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--blue); flex-shrink: 0;
+      transition: transform 0.3s, background 0.2s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--blue-light); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-answer-inner {
+      padding: 0 8px 22px;
+      font-size: 15px; color: var(--gray-600); line-height: 1.8; font-weight: 300;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: var(--black); color: white; padding: 120px 40px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 65%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .final-cta h2 {
+      font-family: var(--sans); font-size: clamp(34px, 5vw, 58px); font-weight: 700;
+      letter-spacing: -1.5px; margin-bottom: 20px; max-width: 640px;
+      margin-left: auto; margin-right: auto; position: relative;
+    }
+    .final-cta p {
+      color: #888; font-size: 17px; max-width: 460px; line-height: 1.8; font-weight: 300;
+      margin: 0 auto 40px; position: relative;
+    }
+    .final-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; color: var(--black);
+      padding: 16px 36px; border-radius: 8px;
+      font-family: var(--sans); font-size: 15px; font-weight: 700;
+      text-decoration: none; border: none; cursor: pointer;
+      letter-spacing: 0.2px;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-white:hover { background: var(--blue); color: white; transform: translateY(-2px); box-shadow: var(--shadow-blue); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #aaa;
+      padding: 16px 32px; border-radius: 8px;
+      font-family: var(--sans); font-size: 15px; font-weight: 500;
+      text-decoration: none; border: 1.5px solid #333; cursor: pointer;
+      transition: border-color 0.25s, color 0.25s, transform 0.25s;
+    }
+    .btn-ghost:hover { border-color: #666; color: white; transform: translateY(-1px); }
+
+    /* Responsive additions */
+    @media (max-width: 1024px) {
+      .problem-grid, .shift-inner, .get-inner { grid-template-columns: 1fr; gap: 40px; }
+      .framework-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .framework-grid::before { display: none; }
+      .proof-metrics, .testimonials-placeholder { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 767px) {
+      .problem-grid, .shift-inner, .get-inner { grid-template-columns: 1fr; gap: 32px; }
+      .framework-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .framework-grid::before { display: none; }
+      .proof-metrics, .testimonials-placeholder { grid-template-columns: 1fr; }
+      .story-body { padding: 32px 24px; }
+      .guarantee-card { padding: 36px 24px; }
+      .final-cta { padding: 80px 20px; }
+      .final-cta-actions { flex-direction: column; align-items: stretch; }
+      .final-cta-actions a { justify-content: center; }
+      .fw-dot { width: 60px; height: 60px; font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .framework-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -42,184 +361,81 @@
 <section class="hero hero-centered">
   <div class="hero-inner" style="text-align: center; align-items: center; display: flex; flex-direction: column;">
     <div class="hero-small-pill">
-      <div class="hero-small">Learn Trading Professionally in Malayalam</div>
+      <div class="hero-small">Professional Trading Education in Malayalam</div>
     </div>
-    <h1>Build A Trading Career That<br>Looks Like A <span class="hero-highlight">Growing Business</span></h1>
-    <p class="hero-sub" style="margin-left: auto; margin-right: auto;">Master the skills, systems, and mindset required to trade financial markets as a disciplined professional — taught entirely in Malayalam.</p>
+    <h1>Build a Trading Career That<br><span class="hero-highlight">Works Like a Business</span></h1>
+    <p class="hero-sub" style="margin-left: auto; margin-right: auto;">Learn a structured, professional approach to trading — without guessing, gambling, or chasing signals.</p>
+    <p style="font-size:13px; color: var(--gray-400); margin-bottom: 36px; font-weight: 400;">Trusted by serious learners who want to treat trading as a long-term skill, not a shortcut.</p>
     <div class="hero-actions" style="justify-content: center;">
-      <a href="course.html"  class="btn-primary">Explore the Course →</a>
-      <a href="about.html"   class="btn-outline">Our Story</a>
+      <a href="course.html"  class="btn-primary">Start Learning Now →</a>
+      <a href="about.html"   class="btn-outline">▶ Watch Free Training</a>
     </div>
   </div>
 </section>
 
 
-<!-- ─── LETTER FROM CEO ─── -->
-<section class="letter-section">
-  <div class="container">
-    <div class="reveal" style="text-align:center; margin-bottom: 52px;">
-      <span class="eyebrow">A Note From Our Founder</span>
-      <h2 class="section-title">A Letter From<br>Our CEO &amp; Mentor</h2>
-    </div>
-    <div class="letter-card reveal">
-      <p>My journey in trading taught me one important thing: many people enter the markets with excitement, but without the right knowledge or guidance. As the CEO and mentor at Eqters, my goal is to help aspiring traders learn trading in a structured and responsible way.</p>
-      <p>Too often, trading is treated like gambling — people hope the market will move in their favor without a clear system or discipline. Unfortunately, this mindset can lead to serious financial losses. That is one of the main reasons we started Eqters.</p>
-      <p>Trading is not a shortcut to quick money. It is a professional skill that requires learning, practice, and the right mindset. Just like any serious profession, education must come before risking real capital.</p>
-      <p>At Eqters, we are committed to providing clear and responsible trading education in Malayalam — without hype or unrealistic promises. Our goal is to help you develop the discipline and understanding needed to treat trading as a serious profession.</p>
-      <p>Welcome to Eqters. Let us build something real together.</p>
-      <div class="letter-sig">
-        <div class="sig-avatar">A</div>
-        <div>
-          <div class="sig-name">Athul Sajjayan</div>
-          <div class="sig-title">CEO &amp; Lead Mentor — Eqters</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ─── BLOG HIGHLIGHT ─── -->
-<section class="blog-highlight">
-  <div class="container">
-    <div class="reveal" style="margin-bottom: 48px;">
-      <span class="eyebrow">From Our Blog</span>
-      <h2 class="section-title">Start With the Basics</h2>
-    </div>
-    <div class="blog-card reveal">
-      <div class="blog-card-visual">
-        <div>
-          <span class="tag">Trading Basics</span>
-          <h3>What is<br>Trading?</h3>
-        </div>
-      </div>
-      <div class="blog-card-body">
-        <p>Trading is the act of buying and selling financial assets — such as stocks, currencies, or commodities — with the goal of profiting from price movements over time.</p>
-        <p>Unlike long-term investing, trading involves active participation in markets. A skilled trader builds a system: a clear set of rules for when to enter, when to exit, how much to risk, and how to manage their emotions under pressure.</p>
-        <p>Done correctly, trading is a craft. Like any craft, it can be learned — and mastered — with the right guidance.</p>
-        <a href="blog.html" class="btn-outline">Read Full Article</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ─── WHY TRADING ─── -->
-<section>
+<!-- ─── SECTION 1: THE PROBLEM ─── -->
+<section class="problem-section">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Why Trading</span>
-      <h2 class="section-title">Why Should You<br>Learn Trading?</h2>
-      <p class="section-sub">Trading is one of the few skills where your results are driven by your decision-making, discipline, and system — not your job, degree, or background.<br><br>But beyond money, trading builds something deeper. Here's what makes it a powerful skill:</p>
+      <span class="eyebrow">The Hard Truth</span>
+      <h2 class="section-title" style="color:white;">Why Most Traders<br>Never Succeed</h2>
     </div>
-
-    <div class="why-grid stagger">
-
-      <div class="why-card">
-        <div class="why-icon">📊</div>
-        <h4>A Modern Financial Skill</h4>
-        <p>Understanding financial markets is no longer optional in today's world. Trading helps you read price movements, understand global economic shifts, and make informed financial decisions.</p>
-        <div class="why-cta-line">👉 This is a core skill in the modern economy</div>
+    <div class="problem-grid">
+      <div class="reveal-left">
+        <p style="font-size:16px; color:#999; line-height:1.8; font-weight:300; margin-bottom:28px;">Most people enter trading with the wrong mindset.</p>
+        <ul class="problem-list">
+          <li>Jump from strategy to strategy</li>
+          <li>Follow random signals they don't understand</li>
+          <li>Trade based on emotions, not logic</li>
+          <li>Focus on quick profits over long-term consistency</li>
+          <li>Lose confidence, money, and direction</li>
+        </ul>
       </div>
-
-      <div class="why-card">
-        <div class="why-icon">🌍</div>
-        <h4>Global Opportunity</h4>
-        <p>Financial markets operate across countries and time zones. With the right knowledge, you can participate in global markets, trade from anywhere, and build income without location limits.</p>
-        <div class="why-cta-line">👉 Your opportunity is no longer restricted by geography</div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">⚙️</div>
-        <h4>System-Based Thinking</h4>
-        <p>Trading forces you to think in systems — not emotions. You learn to follow structured rules, analyze data objectively, and make decisions with logic, not impulse.</p>
-        <div class="why-cta-line">👉 This mindset applies to business, investing, and life</div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">🧠</div>
-        <h4>Mental Discipline &amp; Emotional Control</h4>
-        <p>The market tests your psychology every day. Through trading, you develop patience, emotional stability, and risk awareness — high-value life skills, not just trading skills.</p>
-        <div class="why-cta-line">👉 These are skills that serve you for life</div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">📈</div>
-        <h4>Income Flexibility</h4>
-        <p>Trading creates multiple financial paths: a full-time trading career, side income alongside a job, or skill-based income independent of employers. You are not limited to a single income source.</p>
-        <div class="why-cta-line">👉 Build income on your own terms</div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">🏛️</div>
-        <h4>Access to Capital (Funding Opportunity)</h4>
-        <p>You don't always need your own money. Skilled traders can get funded by proprietary firms, trade larger capital, and scale income based on performance.</p>
-        <div class="why-cta-line">👉 Skill becomes your capital</div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">💡</div>
-        <h4>Independence from Traditional Systems</h4>
-        <p>Most careers depend on employers, salaries, and promotions. Trading is different — your growth depends entirely on your skill level, not external decisions.</p>
-        <div class="why-cta-line">👉 You control your own trajectory</div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">🔄</div>
-        <h4>Real-Time Learning Environment</h4>
-        <p>Markets give instant feedback. Every trade teaches you what works, what doesn't, and how to improve — creating one of the fastest learning cycles in any skill.</p>
-        <div class="why-cta-line">👉 Progress compounds with every session</div>
-      </div>
-
-      <div class="why-card">
-        <div class="why-icon">🧩</div>
-        <h4>Understanding Risk Like Professionals</h4>
-        <p>Most people don't understand risk. Trading teaches you how to calculate risk, how to protect capital, and how to survive losses — skills used by top firms, investors, and institutions.</p>
-        <div class="why-cta-line">👉 Think like the professionals do</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ─── VISION ─── -->
-<section class="vision-section">
-  <div class="container">
-    <div class="vision-inner">
-      <div class="vision-text reveal-left">
-        <span class="eyebrow">Our Mission</span>
-        <h2 class="section-title">Why We Are<br>Doing This</h2>
-        <p>Eqters was not started as just another trading course. It was built with a larger purpose.</p>
-        <p>We are working towards building a full-scale financial services ecosystem — and at the center of that vision are skilled, disciplined traders.</p>
-        <p>Most people enter trading without guidance and fail. But in reality, the market rewards only one thing: <strong>skill and consistency.</strong> That's exactly what we aim to develop.</p>
-
-        <div class="vision-sub-block">
-          <h4>From Education to Real Opportunity</h4>
-          <p>We don't just teach trading. We aim to identify serious learners, train them with structured systems, and help them reach a professional level.</p>
-          <p>We are already building relationships with proprietary trading firms and funders who are actively looking for consistent traders.</p>
-          <div class="vision-cta-line">👉 Our goal: connect skilled traders with real capital opportunities</div>
-        </div>
-
-        <div class="vision-sub-block">
-          <h4>More Than a Course — A Complete Ecosystem</h4>
-          <p>Eqters is the foundation of a system where learning leads to skill, skill leads to opportunity, and opportunity leads to growth.</p>
-          <div class="vision-cta-line">👉 beginner → skilled trader → funded trader</div>
-        </div>
-      </div>
-
       <div class="reveal-right">
-        <div class="vision-card">
-          <div class="vision-pill">🔭 Our Long-Term Vision</div>
-          <h3>Building More Than Just a Trading Course</h3>
-          <p>We are creating a structured journey where every serious learner has the potential to grow into a professional.</p>
-          <ul class="vision-list">
-            <li>Building a regulated financial services company</li>
-            <li>Connecting traders with global funding opportunities</li>
-            <li>Creating real career pathways in trading</li>
-            <li>Promoting responsible and ethical trading practices</li>
-            <li>Delivering structured, real-world education — not hype</li>
+        <div class="problem-callout">
+          <p>The market doesn't reward the excited. It rewards the disciplined.</p>
+          <p>Every year, thousands of traders lose not because trading is impossible — but because they were never taught the right way to approach it.</p>
+          <p class="highlight-line"><span class="highlight-blue">Trading isn't the problem.</span><br>The way you approach it is.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── SECTION 2: THE SHIFT ─── -->
+<section class="shift-section">
+  <div class="container">
+    <div class="shift-inner">
+      <div class="shift-text reveal-left">
+        <span class="eyebrow">The Difference</span>
+        <h2 class="section-title">Trading Is Not Gambling.<br>It's a Business.</h2>
+        <p>Professional traders don't rely on luck. They build systems, follow rules, and make decisions with consistency — the same way a successful business operates.</p>
+        <p>That's the real difference between someone who "tries trading" and someone who builds a lasting trading career.</p>
+        <p>At Eqters, we teach you to think and trade like a professional — not a speculator.</p>
+      </div>
+      <div class="reveal-right">
+        <div class="shift-card">
+          <h3>What Professional Traders Follow</h3>
+          <ul class="shift-list">
+            <li>A structured, repeatable trading system</li>
+            <li>Clear and consistent risk management rules</li>
+            <li>Objective decision-making — not impulse</li>
+            <li>Discipline to follow the plan, even in losses</li>
+            <li>Long-term thinking over short-term wins</li>
           </ul>
+          <div class="shift-compare">
+            <div class="shift-compare-row">
+              <span class="cmp-bad">Someone who "tries trading"</span>
+            </div>
+            <div style="text-align:center; padding: 6px 0;">
+              <span class="cmp-vs">vs</span>
+            </div>
+            <div class="shift-compare-row">
+              <span class="cmp-good">Someone who builds a trading career →</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -227,136 +443,259 @@
 </section>
 
 
-<!-- ─── WHY LEARN FROM US ─── -->
-<section>
+<!-- ─── SECTION 3: YOUR STORY ─── -->
+<section class="story-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:52px;">
+      <span class="eyebrow">Our Founder</span>
+      <h2 class="section-title">Why I Built EQTERS</h2>
+    </div>
+    <div class="story-inner reveal">
+      <div class="story-body">
+        <p>I started like most traders — <strong>confused, inconsistent, and chasing results.</strong></p>
+        <p>I tried different strategies, followed others, and made the same mistakes beginners make. There was excitement at first, but no structure. No real understanding. Just hope.</p>
+        <p>But everything changed when I stopped treating trading like a shortcut… and started treating it like a <strong>skill and a business.</strong></p>
+        <p>Once I built a structured approach — with real risk management, a defined system, and the right mindset — trading became something completely different. Consistent. Manageable. Professional.</p>
+        <p>EQTERS was built to help traders avoid years of confusion and learn the right way from the very beginning — in their own language, with real structure, and no false promises.</p>
+        <div class="story-sig">
+          <div class="story-avatar">A</div>
+          <div>
+            <div class="story-sig-name">Athul Sajjayan</div>
+            <div class="story-sig-role">CEO &amp; Lead Mentor — Eqters</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── SECTION 4: FRAMEWORK ─── -->
+<section class="framework-section">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Why Eqters</span>
-      <h2 class="section-title">Why Learn Trading<br>From Us?</h2>
-      <p class="section-sub">We are not here to sell dreams. We are here to build real skills — professionally, responsibly, and in your language.</p>
+      <span class="eyebrow">Our Approach</span>
+      <h2 class="section-title">The EQTERS<br>Trading Framework</h2>
+      <p class="framework-intro">Inside this program, you don't just learn entries and exits. You build a complete trading system — one that creates consistency through structure, not luck.</p>
     </div>
-    <div class="why-us-grid stagger">
-      <div class="us-card"><div class="us-num">01</div><div><h4>Professional Teaching Approach</h4><p>We teach trading the way a professional career should be taught — with structure, progression, and real accountability at every stage.</p></div></div>
-      <div class="us-card"><div class="us-num">02</div><div><h4>Real Understanding, Not Formulas</h4><p>We focus on genuine comprehension of how markets work, not surface-level patterns or memorized setups. You will understand why — not just what.</p></div></div>
-      <div class="us-card"><div class="us-num">03</div><div><h4>Responsible Trading Mindset</h4><p>We make no promises of guaranteed profit. We teach risk management, discipline, and the psychology required to protect your capital and grow sustainably.</p></div></div>
-      <div class="us-card"><div class="us-num">04</div><div><h4>Malayalam First</h4><p>Complex financial concepts explained clearly in your language — without losing professional depth or accuracy. Accessible education without compromise.</p></div></div>
+    <div class="framework-grid stagger">
+      <div class="fw-step">
+        <div class="fw-dot">📊</div>
+        <h4>Market Understanding</h4>
+        <p>Not just patterns — how and why markets move</p>
+      </div>
+      <div class="fw-step">
+        <div class="fw-dot">🛡️</div>
+        <h4>Risk Management</h4>
+        <p>Protect first, profit later — always</p>
+      </div>
+      <div class="fw-step">
+        <div class="fw-dot">📋</div>
+        <h4>Trading Plan</h4>
+        <p>Structured rules for every decision</p>
+      </div>
+      <div class="fw-step">
+        <div class="fw-dot">🧠</div>
+        <h4>Psychology &amp; Discipline</h4>
+        <p>Master the mental game that decides outcomes</p>
+      </div>
+      <div class="fw-step">
+        <div class="fw-dot">⚡</div>
+        <h4>Execution with Clarity</h4>
+        <p>Act with confidence, not confusion</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:56px; text-align:center;">
+      <p style="font-size:18px; font-weight:600; color:var(--black);">This is what creates <span style="color:var(--blue);">consistency.</span></p>
     </div>
   </div>
 </section>
 
 
-<!-- ─── COURSE FEATURES ─── -->
-<section class="features-section">
+<!-- ─── SECTION 5: PROOF ─── -->
+<section class="proof-section">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Inside the Course</span>
-      <h2 class="section-title">What the Course<br>Covers</h2>
-      <p class="section-sub">A structured trading education built for serious learners who want to develop real, lasting skills.</p>
+      <span class="eyebrow">Social Proof</span>
+      <h2 class="section-title">Real Learning.<br>Real Progress.</h2>
+      <p class="section-sub">Our students focus on building discipline, improving decision-making, and developing consistency over time — not chasing quick wins.</p>
     </div>
-    <div class="features-grid stagger">
-      <div class="feat-card"><div class="feat-num">01</div><h4>Market Foundations</h4><p>Understand how financial markets operate — their structure, participants, and what actually drives price movement.</p></div>
-      <div class="feat-card"><div class="feat-num">02</div><h4>Technical Analysis</h4><p>Learn to read price charts, identify market structure, and develop a systematic approach to spotting high-probability setups.</p></div>
-      <div class="feat-card"><div class="feat-num">03</div><h4>Risk Management</h4><p>Protecting capital is the first rule of professional trading. Learn position sizing, risk-reward ratios, and loss management.</p></div>
-      <div class="feat-card"><div class="feat-num">04</div><h4>Trading Psychology</h4><p>Master the mental game — managing fear, greed, and overconfidence — the hidden skills that separate consistent traders from the rest.</p></div>
-      <div class="feat-card"><div class="feat-num">05</div><h4>Strategy Building</h4><p>Develop your own personal trading strategy — with defined rules, entry criteria, and a clear edge you can trust.</p></div>
-      <div class="feat-card"><div class="feat-num">06</div><h4>Real Market Practice</h4><p>Apply everything you learn using real market examples and live chart analysis — education grounded in reality, not theory.</p></div>
+    <div class="proof-metrics stagger">
+      <div class="metric-card">
+        <div class="metric-num">100%</div>
+        <div class="metric-label">Structured curriculum — no fluff</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">0</div>
+        <div class="metric-label">Fake profit promises or signals</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">Malayalam</div>
+        <div class="metric-label" style="font-size:13px;">Taught in your language, with full depth</div>
+      </div>
+    </div>
+
+    <div class="testimonials-placeholder stagger" style="margin-top:48px;">
+      <div class="t-placeholder reveal">
+        <div class="t-placeholder-icon">💬</div>
+        <strong>Student Testimonial</strong>
+        <p>Coming soon — real feedback from our learners</p>
+      </div>
+      <div class="t-placeholder reveal">
+        <div class="t-placeholder-icon">📸</div>
+        <strong>Progress Screenshot</strong>
+        <p>Add real student results here</p>
+      </div>
+      <div class="t-placeholder reveal">
+        <div class="t-placeholder-icon">⭐</div>
+        <strong>Student Feedback</strong>
+        <p>Replace with genuine reviews</p>
+      </div>
+    </div>
+
+    <div class="proof-note reveal" style="margin-top:36px;">
+      <span>⚠️</span>
+      <span>We do not show fabricated profits or unrealistic success stories. Trading involves real risk — and we teach you to manage it responsibly.</span>
     </div>
   </div>
 </section>
 
 
-<!-- ─── HOW WE TEACH ─── -->
-<section>
+<!-- ─── SECTION 6: WHAT YOU GET ─── -->
+<section class="get-section">
   <div class="container">
-    <div class="reveal" style="text-align: center;">
-      <span class="eyebrow">Our Method</span>
-      <h2 class="section-title">How We Teach You</h2>
-      <p class="section-sub" style="margin: 0 auto;">A clear, step-by-step learning journey designed to take you from foundational knowledge to real market confidence.</p>
+    <div class="reveal" style="margin-bottom:56px;">
+      <span class="eyebrow">Inside the Program</span>
+      <h2 class="section-title">What You'll Get<br>Inside the Program</h2>
     </div>
-    <div class="teach-steps stagger">
-      <div class="step"><div class="step-dot">1</div><h4>Foundation</h4><p>Begin with how markets actually work. No assumptions, no skipped steps.</p></div>
-      <div class="step"><div class="step-dot">2</div><h4>Skills</h4><p>Build technical skills with real chart analysis and structured practice.</p></div>
-      <div class="step"><div class="step-dot">3</div><h4>Systems</h4><p>Develop your personal strategy with defined rules and clear criteria.</p></div>
-      <div class="step"><div class="step-dot">4</div><h4>Mindset</h4><p>Master the psychology and discipline needed to trade consistently.</p></div>
+    <div class="get-inner">
+      <div class="reveal-left">
+        <ul class="get-list">
+          <li>Complete Trading Course</li>
+          <li>Step-by-Step Learning Path</li>
+          <li>Live Sessions &amp; Mentor Guidance</li>
+          <li>Real Trade Breakdowns</li>
+          <li>Risk Management System</li>
+          <li>Community Access</li>
+        </ul>
+        <a href="course.html" class="btn-primary" style="margin-top:8px;">View Full Course Details →</a>
+      </div>
+      <div class="reveal-right">
+        <div class="bonus-card">
+          <div class="bonus-pill">🎁 Free Bonuses</div>
+          <h3>What's Included Free</h3>
+          <ul class="bonus-list">
+            <li><span class="b-icon">🗺️</span>Beginner Roadmap</li>
+            <li><span class="b-icon">✅</span>Trade Checklist</li>
+            <li><span class="b-icon">📓</span>Journaling Template</li>
+          </ul>
+          <div style="margin-top:28px; padding-top:24px; border-top:1px solid #1e1e1e;">
+            <p style="font-size:13px; color:#888; line-height:1.7; font-weight:300;">Everything you need to start building a structured, professional trading approach — from day one.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 
-<!-- ─── CONTACT LAYOUT ─── -->
-<section style="padding-top: 60px; padding-bottom: 80px;">
+<!-- ─── SECTION 7: GUARANTEE ─── -->
+<section class="guarantee-section">
   <div class="container">
-    <div class="contact-layout" style="align-items: center;">
-      <div class="contact-info reveal-left">
-        <span class="eyebrow">Contact Information</span>
-        <h2>Let's Start a Conversation</h2>
-        <p>Whether you have questions about the course, our teaching approach, or anything else — send us a message or reach out directly. We are here to help.</p>
-        <div class="contact-details">
-          <div class="contact-detail">
-            <div class="contact-detail-icon">✉️</div>
-            <div class="contact-detail-text">
-              <div class="label">Email</div>
-              <div class="val">connecteqters@gmail.com</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">📍</div>
-            <div class="contact-detail-text">
-              <div class="label">Location</div>
-              <div class="val">Kerala, India</div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">💬</div>
-            <div class="contact-detail-text">
-              <div class="label">Response Time</div>
-              <div class="val">Within 24 hours</div>
-            </div>
-          </div>
+    <div class="guarantee-inner reveal">
+      <div class="guarantee-badge">🛡️</div>
+      <div class="guarantee-card">
+        <h2>Learn Without Risk</h2>
+        <p>We believe in what we teach. If you feel this program isn't right for you after joining, you can request a full refund within <strong>7 days</strong> — no questions, no pressure.</p>
+        <p>We'd rather you leave satisfied than stay unsure. Our goal is your growth, not just your enrollment.</p>
+        <div class="guarantee-tag">✔ 7-Day Satisfaction Guarantee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── SECTION 8: FAQs ─── -->
+<section class="faq-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="eyebrow">Common Questions</span>
+      <h2 class="section-title">Frequently Asked<br>Questions</h2>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is this program for beginners?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. This program is designed for complete beginners and for struggling traders who want to restart with the right foundation. We assume no prior knowledge and build everything from the ground up.</div>
         </div>
       </div>
 
-      <div class="contact-form reveal-right" id="form-wrapper">
-        <div id="form-container">
-          <h3>Send Us a Message</h3>
-          <form id="contact-form" action="https://formspree.io/f/xreywdzl" method="POST">
-            <input type="hidden" name="_subject" value="New message from Eqters Contact Form">
-            <div class="form-group">
-              <label for="fname">Name</label>
-              <input type="text" id="fname" name="fname" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="Contact number">
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address <span style="font-weight:400; color: var(--gray-400);">(Optional)</span></label>
-              <input type="email" id="email" name="email" placeholder="Email address">
-            </div>
-            <button type="submit" class="btn-primary" id="submit-btn" style="width:100%; justify-content:center;">
-              <span id="btn-text">Send Message &#8594;</span>
-              <span id="btn-loading" style="display:none;">Sending&#8230;</span>
-            </button>
-          </form>
-        </div>
-        <div id="thankyou-state" style="display:none;">
-          <div class="thankyou-inner">
-            <div class="thankyou-icon">
-              <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="26" cy="26" r="25" fill="none" stroke="#2563eb" stroke-width="2"/>
-                <path d="M14 26l9 9 15-18" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <h3>Message Sent!</h3>
-            <p>Thank you for reaching out. We've received your message and will get back to you within 24 hours.</p>
-            <div class="thankyou-detail">
-              <span>&#128231;</span> Check your inbox &#8212; a confirmation may be on its way.
-            </div>
-            <button class="btn-outline" onclick="resetForm()" style="margin-top: 28px;">Send Another Message</button>
-          </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you provide trading signals?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No — and that's intentional. Signals create dependency. We teach you how to think, analyze, and make your own decisions independently. Our goal is to make you a self-sufficient trader, not a signal follower.</div>
         </div>
       </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long will it take to become profitable?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">There's no fixed timeline — it depends entirely on your consistency, effort, and discipline. Trading is a skill that takes time to develop. We don't make profit promises, but we give you the structure and tools to progress at the right pace.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is trading really that risky?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — trading involves real financial risk and we don't hide that. But risk can be managed. A core part of what we teach is how to protect your capital, define your risk before every trade, and build sustainable habits so losses never become catastrophic.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is the course taught in Malayalam?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. The entire course is delivered in Malayalam — so you get professional-depth education in a language that's natural and comfortable for you. No important concepts are lost in translation.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if I'm not satisfied after joining?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We offer a 7-day refund policy. If you feel the program isn't the right fit for you within the first 7 days, reach out and we'll process your refund — no complicated process, no pressure.</div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
+
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta">
+  <h2>Start Building Your<br>Trading Career Today</h2>
+  <p>Stop guessing. Stop following random advice. Start building a structured, professional approach to trading.</p>
+  <div class="final-cta-actions">
+    <a href="course.html" class="btn-white">Join EQTERS Now →</a>
+    <a href="about.html"  class="btn-ghost">▶ Watch Free Training First</a>
   </div>
 </section>
 
@@ -392,5 +731,25 @@
 </a>
 
 <script src="nav.js"></script>
+<script>
+  /* ── FAQ accordion ── */
+  function toggleFaq(btn) {
+    const item   = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    // Open clicked if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+</script>
 </body>
 </html>
