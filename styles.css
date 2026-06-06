@@ -102,24 +102,31 @@ nav.scrolled {
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   background: rgba(255,255,255,0.97);
 }
+/* ════════════════════════════════
+   NAV LOGO — UPDATED
+════════════════════════════════ */
 .nav-logo {
-  display: flex; align-items: center; gap: 10px;
-  cursor: pointer; text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0;                          /* remove gap — logo image includes the name */
+  cursor: pointer;
+  text-decoration: none;
   transition: opacity var(--transition);
-  height: 38px;
+  height: 44px;
 }
 .nav-logo:hover { opacity: 0.8; }
-.logo-name {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 18px; font-weight: 700;
-  color: var(--black); letter-spacing: -0.5px;
-}
+
 .logo-img {
-  height: 38px;
+  height: 44px;                    /* tall enough to be crisp */
   width: auto;
   display: block;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;    /* Firefox fallback */
+}
+
+.logo-name {
+  display: none;                   /* hide text — logo image already has the name */
 }
 .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
 .nav-links li a {
@@ -1447,8 +1454,8 @@ footer .footer-links a:hover { color: white; }
       .final-cta-actions { flex-direction: column; align-items: stretch; }
       .final-cta-actions a { justify-content: center; }
       .fw-dot { width: 60px; height: 60px; font-size: 22px; }
-       .logo-img { height: 32px; }
-.nav-logo { height: 32px; }
+      .logo-img  { height: 34px; }
+      .nav-logo  { height: 34px; }
     }
     @media (max-width: 480px) {
       .framework-grid { grid-template-columns: 1fr 1fr; }
