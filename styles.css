@@ -106,6 +106,7 @@ nav.scrolled {
   display: flex; align-items: center; gap: 10px;
   cursor: pointer; text-decoration: none;
   transition: opacity var(--transition);
+  height: 38px;
 }
 .nav-logo:hover { opacity: 0.8; }
 .logo-name {
@@ -113,7 +114,13 @@ nav.scrolled {
   font-size: 18px; font-weight: 700;
   color: var(--black); letter-spacing: -0.5px;
 }
-.logo-img { height: 30px; width: auto; display: block; }
+.logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
 .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
 .nav-links li a {
   font-size: 14px; font-weight: 500; color: var(--gray-600);
@@ -1440,6 +1447,8 @@ footer .footer-links a:hover { color: white; }
       .final-cta-actions { flex-direction: column; align-items: stretch; }
       .final-cta-actions a { justify-content: center; }
       .fw-dot { width: 60px; height: 60px; font-size: 22px; }
+       .logo-img { height: 32px; }
+.nav-logo { height: 32px; }
     }
     @media (max-width: 480px) {
       .framework-grid { grid-template-columns: 1fr 1fr; }
