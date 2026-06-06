@@ -28,7 +28,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: var(--sans);
@@ -263,7 +263,7 @@ nav.scrolled {
 /* ════════════════════════════════
    LAYOUT
 ════════════════════════════════ */
-section { padding: 100px 40px; }
+section { padding: 100px 40px; overflow-x: hidden; }
 .container { max-width: 1120px; margin: 0 auto; width: 100%; }
 .container-narrow { max-width: 760px; margin: 0 auto; }
 .divider { height: 1px; background: var(--gray-200); margin: 0; }
@@ -441,7 +441,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    PROBLEM SECTION
 ════════════════════════════════ */
-.problem-section { background: #050505; color: white; }
+.problem-section { background: #050505; color: white; overflow: hidden; }
 .problem-section .eyebrow { color: #ef4444; }
 .problem-section .eyebrow::before { background: #ef4444; }
 .problem-section .section-title { color: white; }
@@ -475,7 +475,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    SHIFT SECTION
 ════════════════════════════════ */
-.shift-section { background: var(--gray-50); }
+.shift-section { background: var(--gray-50); overflow: hidden; }
 .shift-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .shift-text { display: flex; flex-direction: column; gap: 16px; }
 .shift-text p { color: var(--gray-600); font-size: 16px; line-height: 1.8; font-weight: 300; }
@@ -513,7 +513,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    STORY SECTION
 ════════════════════════════════ */
-.story-section { background: white; }
+.story-section { background: white; overflow: hidden; }
 .story-inner { max-width: 760px; margin: 0 auto; }
 .story-body {
   background: var(--gray-50); border: 1px solid var(--gray-200);
@@ -546,7 +546,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    FRAMEWORK SECTION
 ════════════════════════════════ */
-.framework-section { background: var(--gray-50); }
+.framework-section { background: var(--gray-50); overflow: hidden; }
 .framework-intro {
   font-size: 16px; color: var(--gray-600); max-width: 580px;
   line-height: 1.8; font-weight: 300; margin-bottom: 48px;
@@ -583,7 +583,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    PROOF SECTION
 ════════════════════════════════ */
-.proof-section { background: white; }
+.proof-section { background: white; overflow: hidden; }
 .proof-metrics {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 20px; margin-top: 48px;
@@ -621,7 +621,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    WHAT YOU GET SECTION
 ════════════════════════════════ */
-.get-section { background: var(--gray-50); }
+.get-section { background: var(--gray-50); overflow: hidden; }
 .get-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start; }
 .get-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 24px 0; }
 .get-list li {
@@ -657,7 +657,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    GUARANTEE SECTION
 ════════════════════════════════ */
-.guarantee-section { background: white; }
+.guarantee-section { background: white; overflow: hidden; }
 .guarantee-inner { max-width: 680px; margin: 0 auto; text-align: center; }
 .guarantee-badge {
   width: 90px; height: 90px; background: var(--blue-light);
@@ -691,7 +691,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    FAQ SECTION
 ════════════════════════════════ */
-.faq-section { background: var(--gray-50); }
+.faq-section { background: var(--gray-50); overflow: hidden; }
 .faq-list { max-width: 740px; margin: 48px auto 0; display: flex; flex-direction: column; }
 .faq-item { border-bottom: 1px solid var(--gray-200); overflow: hidden; }
 .faq-item:first-child { border-top: 1px solid var(--gray-200); }
@@ -744,7 +744,7 @@ footer .footer-links a:hover { color: white; }
 /* ════════════════════════════════
    LETTER CARD
 ════════════════════════════════ */
-.letter-section { background: var(--gray-50); }
+.letter-section { background: var(--gray-50); overflow: hidden; }
 .letter-card {
   background: var(--white); border: 1px solid var(--gray-200);
   border-radius: 20px; padding: 56px;
