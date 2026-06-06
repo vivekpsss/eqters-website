@@ -123,8 +123,8 @@ nav.scrolled {
 .logo-name {
   display: block;
   font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   color: var(--black);
   letter-spacing: -0.5px;
   white-space: nowrap;
@@ -1193,8 +1193,8 @@ footer .footer-links a:hover { color: white; }
   .logo-img { height: 32px; }
   .logo-name {
     display: block;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--black);
     letter-spacing: -0.3px;
     white-space: nowrap;
@@ -1294,7 +1294,7 @@ footer .footer-links a:hover { color: white; }
   .hero h1 { font-size: clamp(24px, 8vw, 32px); }
   .hero-centered h1 { font-size: clamp(24px, 8vw, 32px); }
   .logo-img { height: 28px; }
-  .logo-name { font-size: 15px; }
+  .logo-name { font-size: 18px; font-weight: 800; }
   section { padding: 48px 20px; }
 }
 
@@ -1304,7 +1304,7 @@ footer .footer-links a:hover { color: white; }
 @media (max-width: 360px) {
   nav { padding: 0 20px; }
   .logo-img { height: 26px; }
-  .logo-name { font-size: 14px; }
+  .logo-name { font-size: 17px; font-weight: 800; }
   section { padding: 40px 20px; }
   .hero { padding: 84px 20px 52px; }
 }
