@@ -112,7 +112,7 @@ nav.scrolled {
 .nav-logo:hover { opacity: 0.8; }
 
 .logo-img {
-  height: 70px;
+  height: 40px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -1187,7 +1187,7 @@ footer .footer-links a:hover { color: white; }
 @media (max-width: 767px) {
 
   /* NAV */
-  nav { padding: 0 16px; height: 60px; }
+  nav { padding: 0 20px; height: 60px; }
   .mobile-menu { top: 60px; }
   .nav-logo { gap: 8px; }
   .logo-img { height: 32px; }
@@ -1201,12 +1201,12 @@ footer .footer-links a:hover { color: white; }
   }
 
   /* SECTIONS */
-  section { padding: 56px 16px; }
-  .hero { padding: 96px 16px 64px; }
-  .page-header { padding: 96px 16px 52px; }
-  .contact-mini { padding: 56px 16px; }
-  .final-cta { padding: 64px 16px; }
-  footer { padding: 36px 16px; }
+  section { padding: 56px 20px; }
+  .hero { padding: 96px 20px 64px; }
+  .page-header { padding: 96px 20px 52px; }
+  .contact-mini { padding: 56px 20px; }
+  .final-cta { padding: 64px 20px; }
+  footer { padding: 36px 20px; }
   footer .footer-links { gap: 14px; }
 
   /* HERO */
@@ -1258,8 +1258,8 @@ footer .footer-links a:hover { color: white; }
   .letter-card { padding: 28px 20px; }
   .story-body { padding: 28px 20px; }
   .guarantee-card { padding: 32px 20px; }
-  .contact-form { padding: 24px 16px; }
-  .vision-card { padding: 24px 18px; }
+  .contact-form { padding: 24px 20px; }
+  .vision-card { padding: 24px 20px; }
   .about-visual { min-height: 200px; }
   .course-card { position: static; }
   .bonus-card { position: static; }
@@ -1295,16 +1295,16 @@ footer .footer-links a:hover { color: white; }
   .hero-centered h1 { font-size: clamp(24px, 8vw, 32px); }
   .logo-img { height: 28px; }
   .logo-name { font-size: 15px; }
-  section { padding: 48px 14px; }
+  section { padding: 48px 20px; }
 }
 
 /* ════════════════════════════════
    RESPONSIVE — XSMALL (≤360px)
 ════════════════════════════════ */
 @media (max-width: 360px) {
-  nav { padding: 0 12px; }
+  nav { padding: 0 20px; }
   .logo-img { height: 26px; }
   .logo-name { font-size: 14px; }
-  section { padding: 40px 12px; }
-  .hero { padding: 84px 12px 52px; }
+  section { padding: 40px 20px; }
+  .hero { padding: 84px 20px 52px; }
 }
